@@ -43,7 +43,16 @@ class KubioImageManager {
 			$this->get_image_path( $output_file ),
 			'wb'
 		);
-		fwrite( $filename, base64_decode( $base64_string ) );
+		fwrite(
+			$filename,
+			base64_decode(
+				str_replace(
+					'data:image/png;base64,',
+					'',
+					$base64_string
+				)
+			)
+		);
 		fclose( $filename );
 
 		return kubio_url( $this->folder . $output_file );

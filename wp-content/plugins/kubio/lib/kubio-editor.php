@@ -332,6 +332,7 @@ function kubio_enqueue_editor_page_assets() {
 		wp_enqueue_script( 'kubio-editor' );
 		wp_enqueue_script( 'kubio-block-library' );
 		wp_enqueue_style( 'kubio-admin-panel' );
+		wp_enqueue_style( 'kubio-ai' );
 
 		wp_enqueue_style( 'kubio-editor' );
 		wp_enqueue_style( 'kubio-icons' );
@@ -778,11 +779,14 @@ function kubio_edit_site_init( $hook ) {
 	kubio_enqueue_editor_page_assets();
 	$settings['postTypes'] = kubio_get_post_types();
 
-	$ai_hash       = Flags::get( 'start_with_ai_hash', '' );
+	$ai_hash       = Flags::get( 'start_with_ai_hash', null );
 	$ai_hash_param = Arr::get( $_REQUEST, 'ai', null );
 
-	if ( $ai_hash && $ai_hash_param && $ai_hash_param === $ai_hash ) {
-		$settings['startWithAIFrontPage'] = true;
+	$settings['startWithAIFrontPage'] = ( $ai_hash && $ai_hash_param && $ai_hash_param === $ai_hash );
+
+	if ( isset( $_REQUEST['generate-ai-frontpage'] ) && ! Flags::get( 'generated_from_getting_started', false ) ) {
+		$settings['startGeneratingAIFrontPage'] = true;
+		Flags::set( 'generated_from_getting_started', true );
 	}
 
 	wp_add_inline_script(

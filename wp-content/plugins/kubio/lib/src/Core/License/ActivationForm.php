@@ -1,15 +1,18 @@
 <?php
 namespace Kubio\Core\License;
 
+use IlluminateAgnostic\Arr\Support\Arr;
 use Kubio\Core\LodashBasic;
 use Kubio\Core\License\License;
 use Kubio\Core\License\Updater;
 use Kubio\Flags;
 use Plugin_Upgrader;
-
 class ActivationForm {
+	const FEEDBACK_URL = 'https://kubiobuilder.com/upgrade-reason-results/';
+
 	public function __construct() {
 		add_action( 'wp_ajax_kubiowp-page-builder-activate', array( $this, 'callActivateLicenseEndpoint' ) );
+		add_action( 'wp_ajax_kubiowp-page-builder-upgrade-feedback', array( $this, 'callUpgradeFeedback' ) );
 		add_action( 'wp_ajax_kubiowp-page-builder-maybe-install-pro', array( $this, 'maybeInstallPRO' ) );
 	}
 
@@ -30,10 +33,22 @@ class ActivationForm {
 				<?php echo $this->formHtml( $message ); ?>
 			</div>
 		</div>
+		<?php echo $this->formUpgradeReasonPopup(); ?>
 		<?php
 	}
 
 	public function makeActivateNotice( $formId = '', $classHhtml = array(), $message = '' ) {
+
+		$screen = get_current_screen();
+		global $post;
+		$action          = ( $screen && $screen->action ) ? $screen->action : Arr::get( $_REQUEST, 'action', '' );
+		$is_block_editor = ( $screen && $screen->is_block_editor ) || ( ! empty( $action ) && $post && use_block_editor_for_post( $post ) );
+		$is_block_editor = $is_block_editor || did_filter( 'block_editor_settings_all' );
+
+		if ( $is_block_editor ) {
+			return;
+		}
+
 		if ( ! array( $classHhtml ) ) {
 			$classHhtml = array( $classHhtml );
 		}
@@ -173,5 +188,91 @@ class ActivationForm {
 		}
 
 		wp_send_json_success( $status );
+	}
+
+	public function formUpgradeReasonPopup() {
+		$upgrade_reasons = array(
+			'ai-features'           => __( 'AI Features', 'kubio' ),
+			'more-sections'         => __( 'More sections and blocks', 'kubio' ),
+			'edit-footer'           => __( 'Footer editing', 'kubio' ),
+			'multiple-page-headers' => __( 'Multiple page headers', 'kubio' ),
+			'other'                 => __( 'Other', 'kubio' ),
+		);
+		ob_start();
+		?>
+		<div class="kubio--modal kubio--modal-hidden">
+			<div class="kubio--modal__content">
+				<div class="kubio--popup__wrapper">
+					<div class="kubio--popup__close">
+						<button type="button" class="button"></button>
+					</div>
+					<!-- /.kubio--popup__close -->
+					<div class="kubio--popup__content">
+						<div class="kubio--popup__left">
+							<img src="<?php echo kubio_url( 'static/admin-pages/upgrade-reason.png' ); ?>" alt="">
+						</div>
+						<!-- /.kubio--popup__left -->
+						<div class="kubio--popup__right">
+							<p><?php _e( 'Thank you for choosing Kubio PRO!', 'kubio' ); ?></p>
+							<h2>
+							<?php
+							_e(
+								'Could you tell us what inspired your decision to upgrade?',
+								'kubio'
+							);
+							?>
+								</h2>
+
+							<div class="kubio--popup__form">
+								<?php
+								foreach ( $upgrade_reasons as $reason => $label ) :
+									?>
+									<label>
+										<input type="radio" name="upgrade__reason" value="<?php echo $reason; ?>">										
+										<em></em>
+										<span><?php echo $label; ?></span>
+									</label>
+								<?php endforeach; ?>
+							</div>
+						</div>
+						<!-- /.kubio--popup__right -->
+					</div>
+				</div>
+				<!-- /.kubio--popup__wrapper -->
+			</div>
+			<!-- /.kubio--modal__content -->
+		</div>
+		<!-- /.kubio--modal -->
+
+		<?php
+		$str = ob_get_clean();
+		return $str;
+	}
+
+	public function callUpgradeFeedback() {
+		$license = isset( $_REQUEST['license'] ) ? sanitize_text_field( $_REQUEST['license'] ) : '';
+		$reason  = isset( $_REQUEST['reason'] ) ? sanitize_text_field( $_REQUEST['reason'] ) : '';
+
+		$response = wp_remote_post(
+			self::FEEDBACK_URL,
+			array(
+				'sslverify' => false,
+				'body'      => (
+					array(
+						'license' => $license,
+						'reason'  => $reason,
+					)
+				),
+			)
+		);
+
+		$body = json_decode( wp_remote_retrieve_body( $response ) );
+
+		wp_send_json_success(
+			array(
+				'data' => isset( $body->status ) ? $body->status : 'error',
+			)
+		);
+
 	}
 }

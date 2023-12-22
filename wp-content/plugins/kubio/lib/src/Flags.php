@@ -86,7 +86,7 @@ class Flags {
 	}
 
 	/**
-	 * @return null
+	 * @return static
 	 */
 	private static function getInstance() {
 
@@ -137,6 +137,7 @@ class Flags {
 	public function save() {
 		if ( $this->is_dirty_value ) {
 			update_option( '__kubio_instance_flags', $this->flags, false );
+			$this->is_dirty_value = false;
 		}
 	}
 

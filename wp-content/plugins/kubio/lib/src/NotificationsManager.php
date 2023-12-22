@@ -73,19 +73,22 @@ class NotificationsManager {
 	 * @return void
 	 */
 	public static function updateNotificationsData() {
-		$data = wp_remote_get(
-			add_query_arg(
-				array(
-					'_fields'       => 'acf,id',
-					'meta_key'      => 'license_type',
-					'meta_value'    => kubio_is_pro() ? 'pro' : 'free',
-					'kubio_version' => KUBIO_VERSION,
-					'kubio_build'   => KUBIO_BUILD_NUMBER,
 
-				),
-				self::$remote_data_url_base
-			)
+		$url = add_query_arg(
+			array(
+				'_fields'       => 'acf,id',
+				'meta_key'      => 'license_type',
+				'meta_value'    => kubio_is_pro() ? 'pro' : 'free',
+				'kubio_version' => KUBIO_VERSION,
+				'kubio_build'   => KUBIO_BUILD_NUMBER,
+				'template'      => get_template(),
+				'stylesheet'    => get_stylesheet(),
+				'source'        => Flags::get( 'start_source', 'other' ),
+			),
+			self::$remote_data_url_base
 		);
+
+		$data = wp_remote_get( $url );
 
 		$code = wp_remote_retrieve_response_code( $data );
 		$body = wp_remote_retrieve_body( $data );

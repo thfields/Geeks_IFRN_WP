@@ -112,7 +112,12 @@ function kubio_register_packages_scripts() {
 
 		switch ( $handle ) {
 			case 'kubio-editor':
-				array_push( $dependencies, 'wp-dom-ready', 'editor', 'wp-editor', 'kubio-interface-store' );
+				array_push( $dependencies, 'wp-dom-ready', 'editor', 'wp-editor' );
+
+				if ( kubio_is_kubio_editor_page() ) {
+					array_push( $dependencies, 'kubio-interface-store' );
+				}
+
 				break;
 
 			case 'kubio-format-library':
@@ -269,6 +274,10 @@ function kubio_register_packages_styles() {
 				array_push( $dependencies, 'kubio-utils' );
 				break;
 
+			case 'kubio-ai':
+				array_push( $dependencies, 'wp-components' );
+				break;
+
 			case 'kubio-block-library':
 				kubio_register_kubio_block_library_style_dependencies( $version );
 				break;
@@ -389,6 +398,7 @@ add_action(
 							),
 							admin_url( 'admin.php' )
 						),
+						'allow3rdPartyBlogOverride'     => apply_filters( 'kubio/allow_3rd_party_blog_override', true ),
 					),
 					apply_filters( 'kubio/kubio-utils-data/extras', array() )
 				)

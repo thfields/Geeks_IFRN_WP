@@ -5,7 +5,7 @@ Tags: page builder, editor, landing page, drag-and-drop, visual editor, wysiwyg,
 Requires at least: 5.8
 Tested up to: 6.4
 Requires PHP: 7.1.3
-Stable tag: 2.0.1
+Stable tag: 2.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -142,6 +142,12 @@ You’ll find a growing online documentation for Kubio builder [here](https://ku
 == Screenshots ==
 
 == Changelog ==
+
+= 2.1.0 and 2.1.0-pro =
+- Added better integration for fresh websites.
+- Improvements in the section inserter ( custom sections are now displayed first )
+- Introduced AI icon picker for sections generation
+- General bug fixes 
 
 = 2.0.1 and 2.0.1-pro =
 - Extended Kubio AI support

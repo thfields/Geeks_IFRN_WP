@@ -27,11 +27,12 @@ function kubio_add_woocommerce_support() {
 		return;
 	}
 
+	require_once __DIR__ . '/block-editor-settings.php';
+
 	if ( kubio_has_kubio_woocommerce_support() ) {
 		add_action( 'wp_enqueue_scripts', 'kubio_enqueue_woocommerce_style' );
 		add_action( 'kubio/editor/enqueue_assets', 'kubio_woocommerce_support_editor_assets' );
 
-		require_once __DIR__ . '/block-editor-settings.php';
 		require_once __DIR__ . '/templates-filters.php';
 
 		if ( kubio_is_hybdrid_theme_iframe_preview() ) {

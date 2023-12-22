@@ -4,7 +4,7 @@ use Kubio\Flags;
 
 function kubio_set_editor_ui_version() {
 	Flags::setSetting( 'editorUIVersion', 2 );
-	Flags::setSetting( 'enableAICapabilities', apply_filters( 'kubio/enable_ai_capabilities', kubio_is_pro() ) );
+	Flags::setSetting( 'enableAICapabilities', true );
 	Flags::setSetting( 'editorMode', 'simple' );
 	Flags::setSetting( 'activatedOnStage2', true );
 }

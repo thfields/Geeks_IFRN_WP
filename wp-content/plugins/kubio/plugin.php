@@ -6,7 +6,7 @@
  * Description: Kubio is an innovative block-based WordPress website builder that enriches the block editor with new blocks and gives its users endless styling options.
  * Author: ExtendThemes
  * Author URI: https://extendthemes.com
- * Version: 2.0.1
+ * Version: 2.1.0
  * License: GPL3+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: kubio
@@ -50,8 +50,8 @@ if ( defined( 'KUBIO_VERSION' ) ) {
 	return;
 }
 
-define( 'KUBIO_VERSION', '2.0.1' );
-define( 'KUBIO_BUILD_NUMBER', '240' );
+define( 'KUBIO_VERSION', '2.1.0' );
+define( 'KUBIO_BUILD_NUMBER', '248' );
 
 define( 'KUBIO_ENTRY_FILE', __FILE__ );
 define( 'KUBIO_ROOT_DIR', plugin_dir_path( __FILE__ ) );

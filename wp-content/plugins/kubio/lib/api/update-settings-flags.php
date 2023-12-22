@@ -33,6 +33,18 @@ function kubio_api_update_editor_mode( WP_REST_Request $request ) {
 	return array( 'value' => $next_value );
 }
 
+function kubio_api_update_excluded_section_categories( WP_REST_Request $request ) {
+	$value = $request['value'];
+
+	if ( is_array( $value ) ) {
+		Flags::setSetting( 'excludedSectionCategories', $value );
+	} else {
+		return new WP_Error( 'kubio_invalid_value' );
+	}
+
+	return array( 'value' => $value );
+}
+
 
 add_action(
 	'rest_api_init',
@@ -77,5 +89,19 @@ add_action(
 
 			)
 		);
+
+		register_rest_route(
+			$namespace,
+			'/update-excluded-section-categories',
+			array(
+				'methods'             => 'POST',
+				'callback'            => 'kubio_api_update_excluded_section_categories',
+				'permission_callback' => function () {
+					return current_user_can( 'edit_theme_options' );
+				},
+
+			)
+		);
+
 	}
 );

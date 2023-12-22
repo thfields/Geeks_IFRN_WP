@@ -1,6 +1,7 @@
 <?php
 
 use IlluminateAgnostic\Arr\Support\Arr;
+use Kubio\Core\Utils;
 use Kubio\FileLog;
 use Kubio\Flags;
 
@@ -32,7 +33,7 @@ add_filter(
 						'type'        => 'page',
 						'label'       => 'Kubio AI Logs',
 						'tab-partial' => __DIR__ . '/partials/log.php',
-						'subtitle'    => 'Kubio AI internal logs',
+						'subtitle'    => 'Kubio AI internal logs' . '<br/>' . sprintf( 'Cloud URL: %s', preg_replace( '#\?(.*)#', '', Utils::getCloudURL() ) ),
 					),
 				)
 			);

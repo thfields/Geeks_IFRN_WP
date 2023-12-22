@@ -223,9 +223,9 @@ class Importer {
 		switch ( $type ) {
 			case 'page':
 				$front_page_locations = array(
-					get_stylesheet_directory() . "/full-site-editing/pages/${slug}.html",
-					get_template_directory() . "/full-site-editing/pages/${slug}.html",
-					KUBIO_ROOT_DIR . "/defaults/${slug}.html",
+					get_stylesheet_directory() . "/full-site-editing/pages/{$slug}.html",
+					get_template_directory() . "/full-site-editing/pages/{$slug}.html",
+					KUBIO_ROOT_DIR . "/defaults/{$slug}.html",
 				);
 
 				foreach ( $front_page_locations as $front_page_location ) {
@@ -452,6 +452,7 @@ class Importer {
 			return $imported_files[ $source_url ];
 		}
 
+		// phpcs:ignore Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure
 		if ( $result = static::getImportByGuid( $source_url ) ) {
 			$imported_files[ $source_url ] = $result;
 

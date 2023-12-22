@@ -4,13 +4,16 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 function kubio_get_started_page_tabs() {
 	$default_tabs = array(
-		'get-started' => array(
+		'get-started'     => array(
 			'type'        => 'core_page',
 			'label'       => __( 'Get started with Kubio', 'kubio' ),
 			'tab-partial' => 'get-started.php',
 			'subtitle'    => __( 'The supercharged block-based WordPress builder', 'kubio' ),
 		),
-
+		'website-starter' => array(
+			'type'        => 'hidden',
+			'tab-partial' => 'website-starter.php',
+		),
 	);
 
 	if ( apply_filters( 'kubio/starter-sites/enabled', true ) ) {
@@ -42,20 +45,21 @@ function kubio_get_started_page() {
 	kubio_print_admin_page_start();
 	$kubio_get_started_page_tabs = kubio_get_started_page_tabs();
 
-	$current_tab = sanitize_key( Arr::get( $_REQUEST, 'tab', 'get-started' ) );
+	$current_tab      = sanitize_key( Arr::get( $_REQUEST, 'tab', 'get-started' ) );
+	$current_tab_data = Arr::get( $kubio_get_started_page_tabs, $current_tab, null );
 
-	if ( ! isset( $kubio_get_started_page_tabs[ $current_tab ] ) ) {
+	if ( ! $current_tab_data ) {
 		$current_tab = 'get-started';
 	}
 
-	$subtitle = $kubio_get_started_page_tabs[ $current_tab ]['subtitle'];
+	$subtitle = Arr::get( $current_tab_data, 'subtitle', '' );
 
 	kubio_print_admin_page_header(
 		$subtitle,
 		$kubio_get_started_page_tabs
 	);
 
-	$tab_partial = Arr::get( $kubio_get_started_page_tabs, "{$current_tab}.tab-partial", null );
+	$tab_partial = Arr::get( $current_tab_data, 'tab-partial', null );
 
 	if ( is_callable( $tab_partial ) ) {
 		call_user_func( $tab_partial );
@@ -109,7 +113,6 @@ function kubio_get_started_add_menu_page() {
 			20
 		);
 	}
-
 
 	$tabs = kubio_get_started_page_tabs();
 

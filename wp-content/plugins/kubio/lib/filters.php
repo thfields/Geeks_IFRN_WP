@@ -283,3 +283,4 @@ require_once __DIR__ . '/filters/after-kubio-activation.php';
 require_once __DIR__ . '/filters/wp-import.php';
 require_once __DIR__ . '/filters/starter-sites-feature.php';
 require_once __DIR__ . '/filters/register-meta-fields.php';
+require_once __DIR__ . '/filters/allow-kubio-blog-override.php';

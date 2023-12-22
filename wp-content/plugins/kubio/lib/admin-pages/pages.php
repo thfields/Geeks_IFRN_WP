@@ -43,7 +43,7 @@ function kubio_print_admin_page_header( $subtitle = null, $tabs = array(), $opti
 					<div class="kubio-admin-row kubio-admin-row-items-end">
 						<?php if ( $subtitle ) : ?>
 							<div class="kubio-admin-page-header-subtitle">
-								<?php echo esc_html( $subtitle ); ?>
+								<?php echo wp_kses_post( $subtitle ); ?>
 							</div>
 						<?php endif; ?>
 					</div>
@@ -77,6 +77,11 @@ function kubio_print_admin_page_header( $subtitle = null, $tabs = array(), $opti
 				<ul class="">
 					<?php
 					foreach ( $tabs as $tab_slug => $tab_data ) :
+
+						if ( $tab_data['type'] === 'hidden' ) {
+							continue;
+						}
+
 						$class_add = ( $current_tab === $tab_slug ? 'active' : '' );
 						if ( isset( $tab_data['class'] ) ) {
 							if ( ! is_array( $tab_data['class'] ) ) {
@@ -179,6 +184,16 @@ function kubio_print_continous_loading_bar( $hidden = false ) {
 add_action(
 	'admin_enqueue_scripts',
 	function () {
+		$screen = get_current_screen();
+		global $post;
+		$action          = $screen->action ? $screen->action : Arr::get( $_REQUEST, 'action', '' );
+		$is_block_editor = $screen->is_block_editor || ( ! empty( $action ) && $post && use_block_editor_for_post( $post ) );
+		$is_block_editor = $is_block_editor || did_filter( 'block_editor_settings_all' );
+
+		if ( $is_block_editor ) {
+			return;
+		}
+
 		wp_enqueue_style( 'kubio-admin-area' );
 		wp_enqueue_script( 'kubio-admin-area' );
 
@@ -194,7 +209,8 @@ add_action(
 						<?php
 			}
 		);
-	}
+	},
+	PHP_INT_MAX
 );
 
 require __DIR__ . '/kubio-get-started.php';

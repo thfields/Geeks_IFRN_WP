@@ -57,7 +57,12 @@ class Activation {
 		// handle direct tgmpa activation
 		add_action(
 			'init',
-			function () use ( $self ) {
+			function () {
+
+				if ( ! is_admin() ) {
+					return;
+				}
+
 				if ( Flags::get( 'activated_from_tgmpa' ) ) {
 					Flags::delete( 'activated_from_tgmpa' );
 
@@ -81,6 +86,11 @@ class Activation {
 		add_action(
 			'init',
 			function () use ( $self ) {
+
+				if ( ! is_admin() ) {
+					return;
+				}
+
 				$hash       = sanitize_text_field( Arr::get( $_REQUEST, 'kubio-activation-hash', null ) );
 				$saved_hash = Flags::get( 'activation-hash', false );
 				if ( $saved_hash === $hash ) {
@@ -105,10 +115,10 @@ class Activation {
 	public function activeWithFrontpage() {
 
 		if ( $this->startWithAI() ) {
-			return false;
+			return true;
 		}
 
-		 return Flags::get( 'import_design', false ) !== false;
+		return apply_filters( 'kubio/activation/activate_with_frontpage', Flags::get( 'import_design', false ) !== false );
 	}
 
 	public function importUnmodifiedTemplates() {
@@ -120,13 +130,13 @@ class Activation {
 	}
 
 
-	private function shouldRestoreDeactivtionBackup( Backup $backup ) {
+	private function shouldRestoreDeactivationBackup( Backup $backup ) {
 		$template   = get_stylesheet();
 		$identifier = Flags::getSetting( "deactivation_backup_key.{$template}", null );
 		return $identifier && $backup->hasBackup( $identifier );
 	}
 
-	private function restoreDeactivtionBackup( Backup $backup ) {
+	private function restoreDeactivationBackup( Backup $backup ) {
 		$template   = get_stylesheet();
 		$identifier = Flags::getSetting( "deactivation_backup_key.{$template}", null );
 		$status     = $backup->restoreBackup( $identifier );
@@ -141,8 +151,8 @@ class Activation {
 	public function activate() {
 		$backup = new Backup();
 
-		if ( $this->shouldRestoreDeactivtionBackup( $backup ) ) {
-			$this->restoreDeactivtionBackup( $backup );
+		if ( $this->shouldRestoreDeactivationBackup( $backup ) ) {
+			$this->restoreDeactivationBackup( $backup );
 			return;
 		}
 
@@ -178,19 +188,55 @@ class Activation {
 		wp_cache_flush();
 		do_action( 'kubio/after_activation' );
 
-		if ( $this->startWithAI() ) {
-			Flags::set( 'start_with_ai', false );
-			$ai_hash = md5( uniqid( 'start-with-ai' ) );
-			Flags::set( 'start_with_ai_hash', $ai_hash );
-			wp_redirect(
-				Utils::kubioGetEditorURL(
-					array(
-						'ai' => $ai_hash,
+		if ( ! $this->isCLI() ) {
+
+			// make an educated guess about the start source if not set
+			if ( ! Flags::get( 'start_source', false ) ) {
+				$start_source = 'other';
+				if ( $this->startWithAI() ) {
+					$start_source = 'notice-ai';
+				} elseif ( $this->activeWithFrontpage() ) {
+					$start_source = 'notice-homepage';
+				}
+				Flags::set( 'start_source', $start_source );
+			}
+
+			if ( $this->startWithAI() ) {
+				Flags::set( 'start_with_ai', false );
+				$ai_hash = md5( uniqid( 'start-with-ai' ) );
+				Flags::set( 'start_with_ai_hash', $ai_hash );
+				wp_redirect(
+					Utils::kubioGetEditorURL(
+						array(
+							'ai' => $ai_hash,
+						)
 					)
-				)
-			);
-			exit();
+				);
+				exit();
+			}
+
+			$is_unmodified_supported_theme = kubio_theme_has_kubio_block_support() && ! CustomizerImporter::themeHasModifiedOptions();
+			if ( get_option( 'fresh_site' ) || $is_unmodified_supported_theme ) {
+				if ( $this->activeWithFrontpage() ) {
+					wp_redirect(
+						Utils::kubioGetEditorURL()
+					);
+					exit();
+				}
+
+				$url = add_query_arg(
+					array(
+						'page' => 'kubio-get-started',
+						'tab'  => 'website-starter',
+					),
+					admin_url( 'admin.php' )
+				);
+
+				wp_redirect( $url );
+				exit();
+			}
 		}
+
 	}
 
 	public function addCommonFilters() {
@@ -233,7 +279,8 @@ class Activation {
 			$this->remote_content = unserialize( $content );
 		}
 
-		if ( $global_data = Arr::get( $this->remote_content, 'global-data' ) ) {
+		$global_data = Arr::get( $this->remote_content, 'global-data' );
+		if ( $global_data ) {
 			$global_data = json_decode( $global_data, true );
 
 			if ( json_last_error() === JSON_ERROR_NONE ) {
@@ -266,14 +313,17 @@ class Activation {
 
 		// try to set the blog page and menu
 		if ( ! is_wp_error( $result ) ) {
-			$this->preparePrimaryMenu();
+			static::preparePrimaryMenu();
+		} else {
+			// only set menu location
+			static::preparePrimaryMenu( false );
 		}
 	}
 
 	private function setPages( $data = array() ) {
 
 		if ( ! kubio_theme_has_kubio_block_support() ) {
-			return new \WP_Error( 'not_supporterd_themes' );
+			return new \WP_Error( 'not_supported_themes' );
 		}
 
 		$data = array_merge(
@@ -338,14 +388,23 @@ class Activation {
 			)
 		);
 
-		if ( $query->have_posts() ) {
-			return intval( $page_on_front );
-		}
-
 		$content = '';
 
 		if ( $this->activeWithFrontpage() ) {
 			$content = Importer::getTemplateContent( 'page', 'front-page' );
+		}
+
+		if ( $query->have_posts() ) {
+			if ( apply_filters( 'kubio/activation/override_front_page_content', false ) ) {
+				wp_update_post(
+					array(
+						'ID'           => intval( $page_on_front ),
+						'post_content' => wp_slash( kubio_serialize_blocks( parse_blocks( $content ) ) ),
+					)
+				);
+			}
+
+			return intval( $page_on_front );
 		}
 
 		if ( ! is_string( $content ) ) {
@@ -372,8 +431,8 @@ class Activation {
 		);
 	}
 
-	private function preparePrimaryMenu() {
-		 $theme_menu_locations   = array_keys( get_registered_nav_menus() );
+	public static function preparePrimaryMenu( $create_menu_items = true ) {
+		$theme_menu_locations    = array_keys( get_registered_nav_menus() );
 		$common_header_locations = array(
 			'header-menu',
 			'header',
@@ -407,93 +466,103 @@ class Activation {
 
 			$primary_menu_id = Arr::get( $current_set_locations, $selected_location, null );
 
-			if ( ! $primary_menu_id ) {
-				$primary_menu_id = wp_create_nav_menu( __( 'Primary menu', 'kubio' ) );
+			if ( $create_menu_items ) {
+
+				if ( ! $primary_menu_id ) {
+					$primary_menu_id = wp_create_nav_menu( __( 'Primary menu', 'kubio' ) );
+				}
+
+				if ( is_wp_error( $primary_menu_id ) ) {
+					return;
+				}
+
+				$menu_items     = wp_get_nav_menu_items( $primary_menu_id );
+				$has_front_page = false;
+				$has_blog_page  = false;
+
+				foreach ( $menu_items as $menu_item ) {
+
+					if ( ! $has_front_page ) {
+						$menu_item_object_is_front_page = $menu_item->type === 'post_type' && $menu_item->object === 'page' && intval( $menu_item->object_id ) === intval( get_option( 'page_on_front' ) );
+						$custom_url                     = $menu_item->type === 'custom' ? $menu_item->url : null;
+						$menu_item_link_is_front_page   = false;
+						$parsed_url                     = parse_url( $custom_url );
+
+						if ( $parsed_url && $custom_url ) {
+							$site_url = site_url();
+
+							$parsed_url = array_merge(
+								array(
+									'scheme' => '',
+									'host'   => '',
+									'path'   => '',
+								),
+								$parsed_url
+							);
+
+							$menu_item_url                = "{$parsed_url['scheme']}://{$parsed_url['host']}{$parsed_url['path']}";
+							$menu_item_link_is_front_page = untrailingslashit( $menu_item_url ) === untrailingslashit( $site_url );
+						}
+
+						if ( $menu_item_object_is_front_page || $menu_item_link_is_front_page ) {
+							$has_front_page = true;
+						}
+					}
+
+					if ( $menu_item->type === 'post_type' && $menu_item->object === 'page' && intval( $menu_item->object_id ) === intval( get_option( 'page_for_posts' ) ) ) {
+						$has_blog_page = true;
+					}
+				}
+
+				if ( ! $has_front_page ) {
+					wp_update_nav_menu_item(
+						$primary_menu_id,
+						0,
+						array(
+							'menu-item-title'     => __( 'Home', 'kubio' ),
+							'menu-item-object'    => 'page',
+							'menu-item-object-id' => get_option( 'page_on_front' ),
+							'menu-item-type'      => 'post_type',
+							'menu-item-status'    => 'publish',
+						)
+					);
+				}
+
+				if ( ! $has_blog_page && get_option( 'page_for_posts', 0 ) ) {
+					wp_update_nav_menu_item(
+						$primary_menu_id,
+						0,
+						array(
+							'menu-item-title'     => __( 'Blog', 'kubio' ),
+							'menu-item-object'    => 'page',
+							'menu-item-object-id' => get_option( 'page_for_posts' ),
+							'menu-item-type'      => 'post_type',
+							'menu-item-status'    => 'publish',
+						)
+					);
+				}
 			}
 
-			if ( is_wp_error( $primary_menu_id ) ) {
+			if ( ! $primary_menu_id ) {
 				return;
 			}
 
-			$menu_items     = wp_get_nav_menu_items( $primary_menu_id );
-			$has_front_page = false;
-			$has_blog_page  = false;
-
-			foreach ( $menu_items as $menu_item ) {
-
-				if ( ! $has_front_page ) {
-					$menu_item_object_is_front_page = $menu_item->type === 'post_type' && $menu_item->object === 'page' && intval( $menu_item->object_id ) === intval( get_option( 'page_on_front' ) );
-					$custom_url                     = $menu_item->type === 'custom' ? $menu_item->url : null;
-					$menu_item_link_is_front_page   = false;
-					$parsed_url                     = parse_url( $custom_url );
-
-					if ( $parsed_url && $custom_url ) {
-						$site_url = site_url();
-
-						$parsed_url = array_merge(
-							array(
-								'scheme' => '',
-								'host'   => '',
-								'path'   => '',
-							),
-							$parsed_url
-						);
-
-						$menu_item_url                = "{$parsed_url['scheme']}://{$parsed_url['host']}{$parsed_url['path']}";
-						$menu_item_link_is_front_page = untrailingslashit( $menu_item_url ) === untrailingslashit( $site_url );
-					}
-
-					if ( $menu_item_object_is_front_page || $menu_item_link_is_front_page ) {
-						$has_front_page = true;
-					}
-				}
-
-				if ( $menu_item->type === 'post_type' && $menu_item->object === 'page' && intval( $menu_item->object_id ) === intval( get_option( 'page_for_posts' ) ) ) {
-					$has_blog_page = true;
-				}
-			}
-
-			if ( ! $has_front_page ) {
-				wp_update_nav_menu_item(
-					$primary_menu_id,
-					0,
-					array(
-						'menu-item-title'     => __( 'Home', 'kubio' ),
-						'menu-item-object'    => 'page',
-						'menu-item-object-id' => get_option( 'page_on_front' ),
-						'menu-item-type'      => 'post_type',
-						'menu-item-status'    => 'publish',
-					)
-				);
-			}
-
-			if ( ! $has_blog_page && get_option( 'page_for_posts', 0 ) ) {
-				wp_update_nav_menu_item(
-					$primary_menu_id,
-					0,
-					array(
-						'menu-item-title'     => __( 'Blog', 'kubio' ),
-						'menu-item-object'    => 'page',
-						'menu-item-object-id' => get_option( 'page_for_posts' ),
-						'menu-item-type'      => 'post_type',
-						'menu-item-status'    => 'publish',
-					)
-				);
-			}
-
-			set_theme_mod(
-				'nav_menu_locations',
-				array_merge(
-					$current_set_locations,
-					array(
-						$selected_location => $primary_menu_id,
-					)
+			$next_nav_menu_locations = array_merge(
+				$current_set_locations,
+				array(
+					$selected_location => $primary_menu_id,
 				)
 			);
+
+			if ( ! isset( $next_nav_menu_locations['header-menu'] ) ) {
+				$next_nav_menu_locations['header-menu'] = $primary_menu_id;
+			}
+
+			set_theme_mod( 'nav_menu_locations', $next_nav_menu_locations );
 		}
 	}
 
-	private function importTemplates() {
+	public function importTemplates() {
 		$entities = array_keys( Importer::getAvailableTemplates() );
 
 		foreach ( $entities as $slug ) {
@@ -504,7 +573,7 @@ class Activation {
 		Flags::set( 'kubio_templates_imported', time() );
 	}
 
-	private function importTemplateParts() {
+	public function importTemplateParts() {
 		$entities = array_keys( Importer::getAvailableTemplateParts() );
 
 		foreach ( $entities as $slug ) {

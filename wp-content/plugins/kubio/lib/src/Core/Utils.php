@@ -435,13 +435,18 @@ class Utils {
 	public static function getCloudURL( $url = '', $cloud_root_url = KUBIO_CLOUD_URL ) {
 		$url = trim( $url, '/' );
 
-		$url = add_query_arg(
-			array(
-				'kubio_version' => KUBIO_VERSION,
-				'kubio_build'   => KUBIO_BUILD_NUMBER,
-			),
-			rtrim( "$cloud_root_url/$url", '/' )
+		$args = array(
+			'kubio_version' => KUBIO_VERSION,
+			'kubio_build'   => KUBIO_BUILD_NUMBER,
 		);
+
+		$is_skip_cache_flag_on = defined( 'KUBIO_SKIP_CLOUD_CACHE' ) && KUBIO_SKIP_CLOUD_CACHE;
+
+		if ( Utils::isDebug() || $is_skip_cache_flag_on ) {
+			$args[ 'kbp_' . time() ] = time();
+		}
+
+		$url = add_query_arg( $args, rtrim( "$cloud_root_url/$url", '/' ) );
 
 		return $url;
 	}

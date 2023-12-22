@@ -1,5 +1,7 @@
 <?php
 
+use Kubio\Core\Importer;
+
 function kubio_template_autosave( $post_data, $type = 'preview' ) {
 
 	$id = $post_data->wp_id ? $post_data->wp_id : $post_data->id;
@@ -25,6 +27,12 @@ function kubio_template_autosave( $post_data, $type = 'preview' ) {
 		update_post_meta( $old_autosave->ID, $autosave_meta_key, $type );
 		return $old_autosave;
 	} else {
+
+		// if possible save the post with initial value and then create the autosave
+		if ( ! is_numeric( $id ) && property_exists( $post_data, 'slug' ) && property_exists( $post_data, 'content' ) ) {
+			$id = Importer::createTemplate( $post_data->slug, $post_data->content, false );
+		}
+
 		$new_data               = get_post( $id );
 		$new_data->post_content = $post_data->content;
 

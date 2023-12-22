@@ -1,20 +1,21 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Kubio 2.0.1\n"
+"Project-Id-Version: Kubio 2.1.0\n"
 "Report-Msgid-Bugs-To: support@kubiobuilder.com\n"
 "Last-Translator: Kubio <support@kubiobuilder.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-11-21T11:17:58+02:00\n"
+"POT-Creation-Date: 2023-12-19T10:56:07+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: kubio\n"
 
 #: block-library/src/breadcrumb/index.php:120
-#: src/Core/Activation.php:360
-#: src/Core/Activation.php:461
+#: integrations/third-party-themes/templates-importer.php:323
+#: src/Core/Activation.php:419
+#: src/Core/Activation.php:522
 msgid "Home"
 msgstr ""
 
@@ -108,7 +109,7 @@ msgid "Widget area not found"
 msgstr ""
 
 #: admin-area/src/admin-pages/ai-info.js:64
-#: editor/src/components/header/more-menu/index.js:270
+#: editor/src/components/header/more-menu/index.js:271
 msgid "Disconnect Kubio AI"
 msgstr ""
 
@@ -179,7 +180,7 @@ msgid "It appears that you haven't fully leveraged the potential of Kubio AI fea
 msgstr ""
 
 #: admin-area/src/admin-pages/forms.js:89
-#: src/Core/License/ActivationForm.php:106
+#: src/Core/License/ActivationForm.php:121
 msgid "License key is empty"
 msgstr ""
 
@@ -200,12 +201,68 @@ msgstr ""
 msgid "Kubio PRO sucessfully installed"
 msgstr ""
 
-#: admin-area/src/admin-pages/forms.js:120
+#: admin-area/src/admin-pages/forms.js:121
 msgid "There was an error installing the Kubio PRO plugin"
 msgstr ""
 
-#: admin-area/src/admin-pages/forms.js:130
+#: admin-area/src/admin-pages/forms.js:131
 msgid "Activated successfully"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/index.js:62
+#: ai/src/components/wizard/steps/index.js:10
+msgid "Welcome"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/index.js:103
+msgid "Finishing setup…"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/index.js:113
+msgid "Kubio Website starter"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/index.js:114
+#: ai/src/components/wizard/with-step-wrapper.js:162
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/ui/ui-top-menu.js:37
+#: editor/src/components/ai/filters/section-ai-options/generate-section-modal.js:180
+msgid "Generate"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/welcome-step.js:36
+msgid "Thanks for choosing Kubio!"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/welcome-step.js:38
+msgid "Would you like to generate a homepage using AI? It's fast and FREE!"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/welcome-step.js:44
+msgid "Kubio uses an AI page generator to create a homepage that is adapted to your website. Here’s what you’ll get:"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/welcome-step.js:52
+msgid "A homepage customized for your website"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/welcome-step.js:59
+msgid "Texts and images based on your website subject"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/welcome-step.js:66
+msgid "Matching color scheme and typography"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/welcome-step.js:73
+msgid "Contact form and social media integration"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/welcome-step.js:86
+msgid "Generate homepage with AI"
+msgstr ""
+
+#: admin-area/src/admin-pages/starter/welcome-step.js:92
+msgid "No thanks, install the default homepage"
 msgstr ""
 
 #: advanced-panel/src/available-styles.js:28
@@ -354,7 +411,7 @@ msgid "Your account has insufficient credits"
 msgstr ""
 
 #: ai/src/api.js:127
-#: editor/src/components/ai/ai-page-generator/index.js:545
+#: editor/src/components/ai/ai-page-generator/index.js:566
 msgid "There was an error with the KubioAI services. If the error persists, please contact support"
 msgstr ""
 
@@ -373,6 +430,489 @@ msgstr ""
 msgid "Resources and insights for starting, managing, and growing businesses."
 msgstr ""
 
+#: ai/src/components/wizard/index.js:191
+msgid "Close AI wizard 🧙‍♂️"
+msgstr ""
+
+#: ai/src/components/wizard/index.js:194
+msgid "Skip AI wizard 🧙‍♂️"
+msgstr ""
+
+#: ai/src/components/wizard/index.js:203
+msgid "Configure Kubio AI"
+msgstr ""
+
+#. translators: %s is the type of page e.g. front page, inner page
+#: ai/src/components/wizard/index.js:207
+msgid "Generate %s"
+msgstr ""
+
+#: ai/src/components/wizard/index.js:209
+msgid "front page"
+msgstr ""
+
+#: ai/src/components/wizard/index.js:210
+#: block-library/src/query-pagination/index.js:16
+#: editor/src/components/entities-saved-states/index.js:33
+msgid "page"
+msgid_plural "pages"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s is the type of page e.g. front page, inner page
+#: ai/src/components/wizard/index.js:213
+msgid "Regenerate %s"
+msgstr ""
+
+#: ai/src/components/wizard/index.js:242
+#: block-editor/src/components/inspector-popover-header/index.js:47
+#: block-editor/src/components/url-input/button.js:58
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/ui/index.js:63
+#: editor/src/components/ai/filters/section-ai-options/generate-section-modal.js:112
+#: editor/src/components/ai/zero-credits-modal/index.js:118
+#: editor/src/components/header/predefined-layouts/modal-layout/index.js:67
+#: editor/src/components/secondary-sidebar/inserter-sidebar.js:216
+msgid "Close"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:69
+#: block-library/src/embed/core-embeds.js:57
+msgid "Facebook"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:75
+#: block-library/src/embed/core-embeds.js:34
+msgid "Twitter"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:81
+#: block-library/src/embed/core-embeds.js:68
+msgid "Instagram"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:87
+#: block-library/src/embed/core-embeds.js:44
+msgid "YouTube"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:93
+msgid "Whatsapp"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:99
+msgid "Tiktok"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:105
+msgid "Pinterest"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:111
+msgid "Linkedin"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:247
+msgid "Website language is required"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:263
+msgid "Email address"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:269
+#: ai/src/components/wizard/steps/contact-info-step.js:302
+#: ai/src/components/wizard/steps/contact-info-step.js:448
+#: ai/src/components/wizard/steps/contact-info-step.js:644
+msgid "Optional"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:280
+msgid "Phone number"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:286
+msgid "(Optional)"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:296
+#: block-library/src/map/inspector/content/map-options.js:26
+msgid "Address"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:320
+msgid "Website language"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:327
+msgid "Select language"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:335
+msgid "Language style"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:354
+msgid "Website style"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:388
+msgid "No file selected"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:446
+msgid "Website logo"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:459
+msgid "Upload an image file with your company's logo"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:470
+msgid "Upload a file"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:519
+msgid "No URL set"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:570
+#: block-editor/src/components/block-lock/modal.js:214
+#: block-editor/src/components/image-editor/form-controls.js:17
+#: block-editor/src/components/url-popover/link-editor.js:41
+#: block-library/src/image/edit/image-editor.js:380
+msgid "Apply"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:640
+msgid "Social media"
+msgstr ""
+
+#: ai/src/components/wizard/steps/contact-info-step.js:668
+msgid "Add social platform"
+msgstr ""
+
+#: ai/src/components/wizard/steps/final-step.js:13
+msgid "Kubio AI is ready to generate your website."
+msgstr ""
+
+#: ai/src/components/wizard/steps/final-step.js:15
+msgid "AI features require connecting to a Kubio account"
+msgstr ""
+
+#: ai/src/components/wizard/steps/final-step.js:20
+msgid "Create a free Kubio account and you will receive 500 free AI credits to generate your homepage."
+msgstr ""
+
+#: ai/src/components/wizard/steps/final-step.js:33
+msgid "Awesome! Let's hit \"Generate\""
+msgstr ""
+
+#: ai/src/components/wizard/steps/final-step.js:36
+msgid "Awesome! Let's hit \"Save changes\""
+msgstr ""
+
+#: ai/src/components/wizard/steps/final-step.js:93
+msgid "Successfully connected to Kubio AI!"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:21
+msgid "Multi page"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:25
+msgid "Single page"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:49
+msgid "Too short"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:50
+msgid "Almost there"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:51
+msgid "Great description"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:140
+msgid "Website name cannot be empty!"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:147
+msgid "Website type cannot be empty!"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:154
+msgid "Website description cannot be empty!"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:159
+msgid "Website description exceeds 100 words. Please edit & keep it under the limit to proceed."
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:182
+msgid "Website name"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:197
+msgid "Website type"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:224
+msgid "Website structure"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:244
+msgid "Short description of the website"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:291
+msgid "Recommendations"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:299
+msgid "A few important things to mention in your description:"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:305
+msgid "your main activity"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:307
+msgid "main products or services"
+msgstr ""
+
+#: ai/src/components/wizard/steps/general-info-step.js:313
+msgid "the purpose of the website"
+msgstr ""
+
+#: ai/src/components/wizard/steps/index.js:11
+#: ai/src/components/wizard/steps/index.js:21
+msgid "Tell us a few things about your new website."
+msgstr ""
+
+#: ai/src/components/wizard/steps/index.js:20
+msgid "General information"
+msgstr ""
+
+#: ai/src/components/wizard/steps/index.js:30
+msgid "Identity & contact"
+msgstr ""
+
+#: ai/src/components/wizard/steps/index.js:31
+msgid "Provide any contact information related to your business."
+msgstr ""
+
+#: ai/src/components/wizard/steps/index.js:40
+msgid "Page information"
+msgstr ""
+
+#: ai/src/components/wizard/steps/index.js:41
+msgid "Tell us a few things about the page we're about to generate."
+msgstr ""
+
+#: ai/src/components/wizard/steps/index.js:49
+#: editor/src/components/ai/new-page.js:88
+msgid "Generate with Kubio AI"
+msgstr ""
+
+#: ai/src/components/wizard/steps/index.js:51
+msgid "Watch how Kubio AI does all the work for you."
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-info-step.js:87
+msgid "Page title cannot be empty!"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-info-step.js:94
+msgid "Page description exceeds 100 words. Please edit & keep it under the limit to proceed."
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-info-step.js:101
+msgid "Page description cannot be empty!"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-info-step.js:123
+#: block-library/src/page-title/component.js:11
+msgid "Page title"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-info-step.js:136
+msgid "Page purpose"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-info-step.js:137
+msgid "Select page purpose"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-info-step.js:148
+msgid "Short description of the page"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-info-step.js:161
+msgid "Max. 100 words"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:5
+#: block-library/src/post-comments/elements.js:195
+#: editor/src/components/navigation-sidebar/navigation-panel/constants.js:103
+#: full-site-editing/template-parts-area.php:26
+msgid "General"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:9
+msgid "About Us"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:13
+#: AI/utils.php:109
+msgid "Services"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:17
+#: kubio-editor.php:150
+msgid "Features"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:21
+#: kubio-editor.php:174
+msgid "Portfolio"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:25
+#: kubio-editor.php:194
+msgid "Team"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:29
+#: block-library/src/image-gallery/blocks/gallery/component.js:75
+#: block-library/src/image-gallery/blocks/gallery/elements.js:11
+msgid "Gallery"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:33
+#: kubio-editor.php:204
+msgid "F.A.Q."
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:37
+#: block-library/src/pricing/settings.js:7
+#: kubio-editor.php:209
+msgid "Pricing"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:41
+#: kubio-editor.php:199
+msgid "Contact"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:46
+msgid "It will show the main features of our products, including our plans and user testimonials"
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:53
+msgid "This page should offer detailed information about our organization. Describe company's history, values, and mission and give visitors a clear understanding of our identity."
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:57
+msgid "This page focus is on showcasing our business's offerings. Present details about the specific products, solutions, or expertise our company provides to attract potential clients."
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:61
+msgid "This page should display a showcase of our notable projects and work. Highlight completed assignments, creative ventures, or successful case studies that effectively demonstrate our competence and skills."
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:65
+msgid "A page that introduces visitors to our team members. Spotlight their individual roles, skills, and contributions within the organization to provide insight into our workforce."
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:69
+msgid "A page that streamlines communication between our business and its audience. Incorporate contact forms, phone numbers, addresses, and social media links to provide visitors with convenient ways to get in touch."
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:74
+msgid "This page is dedicated to showcasing the key features and functionalities of our products or services. Highlight the unique aspects that set our offerings apart and provide value to customers."
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:78
+msgid "This page should present a visual gallery that displays images, videos, or multimedia content relevant to our business or organization."
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:82
+msgid "This page should present comprehensive list of frequently asked questions and their respective answers. Address common queries that visitors might have about our products, services, policies, or any other relevant topics."
+msgstr ""
+
+#: ai/src/components/wizard/steps/page-types-and-descriptions.js:86
+msgid "This page should present clear and detailed pricing information for our products or services."
+msgstr ""
+
+#: ai/src/components/wizard/steps/welcome-step.js:31
+msgid "Let's create your home page in just a few easy steps:"
+msgstr ""
+
+#: ai/src/components/wizard/steps/welcome-step.js:38
+msgid "Provide a short description of the website"
+msgstr ""
+
+#: ai/src/components/wizard/steps/welcome-step.js:44
+msgid "Provide contact and social info (optional)"
+msgstr ""
+
+#: ai/src/components/wizard/steps/welcome-step.js:49
+msgid "Generate your homepage"
+msgstr ""
+
+#: ai/src/components/wizard/steps/welcome-step.js:51
+msgid "Apply finishing touches"
+msgstr ""
+
+#: ai/src/components/wizard/steps/welcome-step.js:60
+msgid "Let's get started!"
+msgstr ""
+
+#: ai/src/components/wizard/with-step-wrapper.js:151
+#: block-library/src/pagination-nav-button/edit.js:12
+#: block-library/src/query-pagination/variations.js:27
+msgid "Next"
+msgstr ""
+
+#: ai/src/components/wizard/with-step-wrapper.js:159
+#: editor/src/components/navigation-sidebar/navigation-panel/modals/change-entity-modal.js:153
+msgid "Save changes"
+msgstr ""
+
+#: ai/src/components/wizard/with-step-wrapper.js:172
+msgid "Please connect to Kubio AI first."
+msgstr ""
+
+#: ai/src/components/wizard/with-step-wrapper.js:216
+msgid "Looks like the current page already has content. This action will replace the current page content."
+msgstr ""
+
+#: ai/src/components/wizard/with-step-wrapper.js:229
+#: ai/src/components/wizard/with-step-wrapper.js:248
+#: controls/src/components/wizard/index.js:153
+#: controls/src/components/wizard/index.js:180
+#: controls/src/style-controls/appearance-control/constants.js:287
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generative-fill/sidebar-generative.js:80
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:137
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/view/view-single-image.js:26
+#: editor/src/components/header/fullscreen-mode-close/index.js:24
+#: editor/src/components/header/predefined-layouts/pages/demo-preview-page/preview-sidebar/header.js:17
+#: editor/src/components/sidebar/sidebar-area.js:46
+msgid "Back"
+msgstr ""
+
+#: ai/src/components/wizard/with-step-wrapper.js:238
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/index.js:10
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/index.js:15
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/index.js:20
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/index.js:25
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/index.js:30
+msgid "Continue"
+msgstr ""
+
 #: ai/src/languages.js:13
 #: AI/utils.php:73
 msgid "Natural"
@@ -383,7 +923,7 @@ msgstr ""
 msgid "Is the default language style. It can adapt to some extent depending on the cues from the user's input."
 msgstr ""
 
-#: ai/src/structure.js:216
+#: ai/src/structure.js:217
 #: block-editor/src/components/inserter/hooks/use-insertion-point.js:451
 #: block-library/src/navigation/blocks/navigation-section/elements.js:10
 #: block-library/src/navigation/blocks/navigation/elements.js:23
@@ -392,7 +932,7 @@ msgstr ""
 msgid "Navigation"
 msgstr ""
 
-#: ai/src/structure.js:221
+#: ai/src/structure.js:222
 #: block-editor/src/components/inserter/hooks/use-insertion-point.js:454
 #: block-library/src/hero/index.js:17
 #: block-library/src/hero/variations/index.js:14
@@ -624,20 +1164,12 @@ msgstr ""
 #: block-editor/src/components/inserter/classic-theme-create-template-modal/modal-content.js:176
 #: block-library/src/header/inspector/content/template-part-properties.js:117
 #: block-library/src/image/edit/image-editor.js:383
-#: controls/src/components/wizard/index.js:148
+#: controls/src/components/wizard/index.js:150
 #: editor/src/components/ai/filters/ai-block-description/index.js:119
 #: editor/src/components/header/predefined-layouts/pages/demo-site-import-page/footer.js:77
 #: editor/src/components/navigation-sidebar/navigation-panel/modals/delete-page-modal.js:59
 #: admin-pages/main-page/demo-sites.php:146
 msgid "Cancel"
-msgstr ""
-
-#: block-editor/src/components/block-lock/modal.js:214
-#: block-editor/src/components/image-editor/form-controls.js:17
-#: block-editor/src/components/url-popover/link-editor.js:41
-#: block-library/src/image/edit/image-editor.js:380
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:558
-msgid "Apply"
 msgstr ""
 
 #: block-editor/src/components/block-media-update-progress/index.native.js:266
@@ -1236,19 +1768,19 @@ msgstr ""
 msgid "Use left and right arrow keys to move through blocks"
 msgstr ""
 
-#: block-editor/src/components/inserter/block-gutentag-sections-tab.js:172
+#: block-editor/src/components/inserter/block-gutentag-sections-tab.js:188
 #: block-editor/src/components/inserter/block-patterns-tab.js:56
 msgctxt "kubio"
 msgid "Uncategorized"
 msgstr ""
 
-#: block-editor/src/components/inserter/block-gutentag-sections-tab.js:205
+#: block-editor/src/components/inserter/block-gutentag-sections-tab.js:221
 #: block-patterns/src/firebase-patterns.js:175
 #: block-patterns/src/firebase-patterns.js:177
 msgid "Blank section"
 msgstr ""
 
-#: block-editor/src/components/inserter/block-gutentag-sections-tab.js:252
+#: block-editor/src/components/inserter/block-gutentag-sections-tab.js:268
 msgid "Loading sections…"
 msgstr ""
 
@@ -1434,6 +1966,7 @@ msgstr ""
 #. translators: Patterns tab title in the block inserter.
 #: block-editor/src/components/inserter/tabs.js:18
 #: editor/src/components/header/predefined-layouts/pages/page-renderer/use-modal-pages.js:35
+#: editor/src/components/header/preferences-menu-item/preferences-tabs.js:9
 msgid "Sections"
 msgstr ""
 
@@ -1495,7 +2028,7 @@ msgid "Dismiss hint"
 msgstr ""
 
 #: block-editor/src/components/inspector-controls-tabs/utils.js:9
-#: editor/src/components/header/index.js:331
+#: editor/src/components/header/index.js:318
 #: editor/src/components/sidebar/sections-list/handled-block-item/index.js:191
 #: editor/src/components/sidebar/sections-list/index.js:340
 #: editor/src/components/sidebar/sections-list/unhandled-block-item.js:80
@@ -1504,19 +2037,8 @@ msgstr ""
 
 #. translators: button label text should, if possible, be under 16 characters.
 #: block-editor/src/components/inspector-controls-tabs/utils.js:25
-#: editor/src/components/header/index.js:212
+#: editor/src/components/header/index.js:211
 msgid "List View"
-msgstr ""
-
-#: block-editor/src/components/inspector-popover-header/index.js:47
-#: block-editor/src/components/url-input/button.js:58
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/ui/index.js:63
-#: editor/src/components/ai/filters/section-ai-options/generate-section-modal.js:112
-#: editor/src/components/ai/wizard/index.js:216
-#: editor/src/components/ai/zero-credits-modal/index.js:118
-#: editor/src/components/header/predefined-layouts/modal-layout/index.js:67
-#: editor/src/components/secondary-sidebar/inserter-sidebar.js:216
-msgid "Close"
 msgstr ""
 
 #: block-editor/src/components/justify-content-control/ui.js:46
@@ -1760,7 +2282,7 @@ msgstr ""
 #: controls/src/style-controls/background-control/constants.js:37
 #: controls/src/style-controls/background-control/constants.js:125
 #: controls/src/style-controls/typography-control/config.js:66
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:56
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:53
 #: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:74
 msgid "None"
 msgstr ""
@@ -2050,7 +2572,7 @@ msgstr ""
 
 #: block-editor/src/store/defaults.js:136
 #: block-library/src/image-gallery/config.js:14
-#: kubio-editor.php:373
+#: kubio-editor.php:374
 msgid "Thumbnail"
 msgstr ""
 
@@ -2058,7 +2580,7 @@ msgstr ""
 #: block-library/src/button/inspector/content/button-size/config.js:12
 #: block-library/src/image-gallery/config.js:15
 #: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/options.js:5
-#: kubio-editor.php:374
+#: kubio-editor.php:375
 msgid "Medium"
 msgstr ""
 
@@ -2066,13 +2588,13 @@ msgstr ""
 #: block-library/src/button/inspector/content/button-size/config.js:13
 #: block-library/src/image-gallery/config.js:16
 #: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/options.js:4
-#: kubio-editor.php:375
+#: kubio-editor.php:376
 msgid "Large"
 msgstr ""
 
 #: block-editor/src/store/defaults.js:139
 #: block-library/src/image/inspector/content/image-properties.js:138
-#: kubio-editor.php:376
+#: kubio-editor.php:377
 msgid "Original Size"
 msgstr ""
 
@@ -3047,7 +3569,7 @@ msgid "Category"
 msgstr ""
 
 #: block-library/src/common/filters/with-save-block-preset/save-preset-modal/index.js:42
-#: editor/src/components/header/more-menu/index.js:211
+#: editor/src/components/header/more-menu/index.js:212
 msgid "Connect to Kubio Cloud"
 msgstr ""
 
@@ -3091,45 +3613,45 @@ msgstr ""
 msgid "Only letters and numbers are allowed (Max 100 characters)."
 msgstr ""
 
-#: block-library/src/common/form-block/components/shortcode-controls.js:117
+#: block-library/src/common/form-block/components/shortcode-controls.js:119
 msgid "Add form"
 msgstr ""
 
-#: block-library/src/common/form-block/components/shortcode-controls.js:157
+#: block-library/src/common/form-block/components/shortcode-controls.js:159
 msgid "[Insert shortcode here]"
 msgstr ""
 
-#: block-library/src/common/form-block/components/shortcode-controls.js:190
+#: block-library/src/common/form-block/components/shortcode-controls.js:192
 msgid "Use shortcode"
 msgstr ""
 
-#: block-library/src/common/form-block/components/shortcode-controls.js:235
+#: block-library/src/common/form-block/components/shortcode-controls.js:237
 msgid "Select a form"
 msgstr ""
 
-#: block-library/src/common/form-block/components/shortcode-controls.js:250
-#: block-library/src/common/form-block/components/shortcode-controls.js:277
-#: block-library/src/common/form-block/components/shortcode-controls.js:307
+#: block-library/src/common/form-block/components/shortcode-controls.js:252
+#: block-library/src/common/form-block/components/shortcode-controls.js:279
+#: block-library/src/common/form-block/components/shortcode-controls.js:309
 msgid "Refresh form list"
 msgstr ""
 
-#: block-library/src/common/form-block/components/shortcode-controls.js:265
+#: block-library/src/common/form-block/components/shortcode-controls.js:267
 msgid "Loading forms…"
 msgstr ""
 
-#: block-library/src/common/form-block/components/shortcode-controls.js:315
+#: block-library/src/common/form-block/components/shortcode-controls.js:317
 msgid "Use Form"
 msgstr ""
 
-#: block-library/src/common/form-block/components/shortcode-controls.js:351
+#: block-library/src/common/form-block/components/shortcode-controls.js:353
 msgid "No forms detected."
 msgstr ""
 
-#: block-library/src/common/form-block/components/shortcode-controls.js:354
+#: block-library/src/common/form-block/components/shortcode-controls.js:356
 msgid "You can use forms from the following plugins: "
 msgstr ""
 
-#: block-library/src/common/form-block/components/shortcode-controls.js:401
+#: block-library/src/common/form-block/components/shortcode-controls.js:404
 msgid "Contact form 7 plugin was successfully installed"
 msgstr ""
 
@@ -3176,9 +3698,9 @@ msgstr ""
 #: block-library/src/common/template-part/edit/index.js:213
 #: add-edit-in-kubio.php:78
 #: add-edit-in-kubio.php:167
-#: add-edit-in-kubio.php:302
+#: add-edit-in-kubio.php:330
 #: filters/default-editor-overlay.php:147
-#: kubio-editor.php:918
+#: kubio-editor.php:922
 msgid "Edit with Kubio"
 msgstr ""
 
@@ -3718,11 +4240,6 @@ msgstr ""
 msgid "Use dividers to separate website sections in a creative way. Customize their color, line thickness, and more."
 msgstr ""
 
-#: block-library/src/embed/core-embeds.js:34
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:71
-msgid "Twitter"
-msgstr ""
-
 #: block-library/src/embed/core-embeds.js:36
 #: block-library/src/embed/core-embeds.js:59
 #: block-library/src/embed/core-embeds.js:70
@@ -3733,11 +4250,6 @@ msgstr ""
 
 #: block-library/src/embed/core-embeds.js:37
 msgid "Embed a tweet."
-msgstr ""
-
-#: block-library/src/embed/core-embeds.js:44
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:83
-msgid "YouTube"
 msgstr ""
 
 #: block-library/src/embed/core-embeds.js:46
@@ -3761,18 +4273,8 @@ msgstr ""
 msgid "Embed a YouTube video."
 msgstr ""
 
-#: block-library/src/embed/core-embeds.js:57
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:65
-msgid "Facebook"
-msgstr ""
-
 #: block-library/src/embed/core-embeds.js:60
 msgid "Embed a Facebook post."
-msgstr ""
-
-#: block-library/src/embed/core-embeds.js:68
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:77
-msgid "Instagram"
 msgstr ""
 
 #: block-library/src/embed/core-embeds.js:70
@@ -5006,12 +5508,6 @@ msgstr ""
 msgid "Add attractive icons to web pages. 100+ free icons are available from the most popular libraries out there. Fully customizable."
 msgstr ""
 
-#: block-library/src/image-gallery/blocks/gallery/component.js:75
-#: block-library/src/image-gallery/blocks/gallery/elements.js:11
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:29
-msgid "Gallery"
-msgstr ""
-
 #: block-library/src/image-gallery/blocks/gallery/component.js:76
 msgid "Drag images, upload new ones or select files from your library."
 msgstr ""
@@ -5560,11 +6056,6 @@ msgstr ""
 msgid "Map Properties"
 msgstr ""
 
-#: block-library/src/map/inspector/content/map-options.js:26
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:289
-msgid "Address"
-msgstr ""
-
 #: block-library/src/menu/accordion-menu/elements.js:10
 #: block-library/src/menu/dropdown-menu/elements.js:10
 msgid "Menu container"
@@ -6087,11 +6578,6 @@ msgstr ""
 msgid "Navigation padding"
 msgstr ""
 
-#: block-library/src/page-title/component.js:11
-#: editor/src/components/ai/wizard/steps/page-info-step.js:123
-msgid "Page title"
-msgstr ""
-
 #: block-library/src/page-title/config.js:20
 msgid "Normal page format"
 msgstr ""
@@ -6174,12 +6660,6 @@ msgstr ""
 #: editor/src/components/sidebar/areas/style-presets/color-scheme-presets.js:77
 #: editor/src/components/sidebar/areas/style-presets/color-scheme-presets.js:150
 msgid "Previous"
-msgstr ""
-
-#: block-library/src/pagination-nav-button/edit.js:12
-#: block-library/src/query-pagination/variations.js:27
-#: editor/src/components/ai/wizard/with-step-wrapper.js:97
-msgid "Next"
 msgstr ""
 
 #: block-library/src/pagination-nav-button/edit.js:23
@@ -6454,13 +6934,6 @@ msgstr ""
 
 #: block-library/src/post-comments/elements.js:167
 msgid "Reply form"
-msgstr ""
-
-#: block-library/src/post-comments/elements.js:195
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:5
-#: editor/src/components/navigation-sidebar/navigation-panel/constants.js:103
-#: full-site-editing/template-parts-area.php:26
-msgid "General"
 msgstr ""
 
 #: block-library/src/post-comments/elements.js:214
@@ -7050,12 +7523,6 @@ msgstr ""
 msgid "Decimal part vertical position"
 msgstr ""
 
-#: block-library/src/pricing/settings.js:7
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:37
-#: kubio-editor.php:209
-msgid "Pricing"
-msgstr ""
-
 #: block-library/src/pricing/variations-filter.js:3
 msgid "Showcase the pricing of your products and services, and make your offers stand out in a stylish matter."
 msgstr ""
@@ -7101,14 +7568,6 @@ msgstr ""
 #: block-library/src/query-pagination/index.js:12
 msgid "Use buttons only or buttons with numbers pagination to help your website visitors navigate your blog."
 msgstr ""
-
-#: block-library/src/query-pagination/index.js:16
-#: editor/src/components/ai/wizard/index.js:190
-#: editor/src/components/entities-saved-states/index.js:33
-msgid "page"
-msgid_plural "pages"
-msgstr[0] ""
-msgstr[1] ""
 
 #: block-library/src/query-pagination/variations.js:50
 msgid "Buttons & Numbers"
@@ -7599,7 +8058,7 @@ msgstr ""
 #: block-library/src/slider/blocks/slider-dots/inspector/style/dot-style.js:17
 #: controls/src/style-controls/background-control/index.js:804
 #: controls/src/style-controls/typography-control/index.js:133
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:153
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:150
 #: editor/src/components/sidebar/areas/general-settings/global-typography.js:242
 #: editor/src/components/sidebar/areas/general-settings/global-typography.js:297
 msgid "Size"
@@ -8762,7 +9221,7 @@ msgstr ""
 #: core/src/hooks/use-page-title.js:45
 #: core/src/hooks/use-page-title.js:65
 #: editor-data/src/session-store/index.js:308
-#: editor/src/components/header/index.js:302
+#: editor/src/components/header/index.js:289
 #: integrations/third-party-themes/templates.php:39
 msgid "Page"
 msgstr ""
@@ -8799,29 +9258,14 @@ msgid "URL"
 msgstr ""
 
 #. translators: 1: current page number 2: total number of pages
-#: controls/src/components/wizard/index.js:85
+#: controls/src/components/wizard/index.js:87
 msgid "Step %1$d of %2$d"
 msgstr ""
 
-#: controls/src/components/wizard/index.js:103
-#: controls/src/components/wizard/index.js:243
-#: controls/src/components/wizard/index.js:292
-#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/index.js:17
+#: controls/src/components/wizard/index.js:105
+#: controls/src/components/wizard/index.js:245
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/index.js:35
 msgid "Finish"
-msgstr ""
-
-#: controls/src/components/wizard/index.js:151
-#: controls/src/components/wizard/index.js:178
-#: controls/src/style-controls/appearance-control/constants.js:287
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generative-fill/sidebar-generative.js:80
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:137
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/view/view-single-image.js:26
-#: editor/src/components/ai/wizard/with-step-wrapper.js:185
-#: editor/src/components/ai/wizard/with-step-wrapper.js:204
-#: editor/src/components/header/fullscreen-mode-close/index.js:24
-#: editor/src/components/header/predefined-layouts/pages/demo-preview-page/preview-sidebar/header.js:17
-#: editor/src/components/sidebar/sidebar-area.js:46
-msgid "Back"
 msgstr ""
 
 #: controls/src/notices/control-notice.js:6
@@ -9629,31 +10073,31 @@ msgstr ""
 msgid "The media items like photos and videos are provided by %s"
 msgstr ""
 
-#: editor/src/components/ai/ai-page-generator/index.js:149
+#: editor/src/components/ai/ai-page-generator/index.js:143
 msgid "Generating…"
 msgstr ""
 
-#: editor/src/components/ai/ai-page-generator/index.js:359
+#: editor/src/components/ai/ai-page-generator/index.js:380
 msgid "Generating site structure "
 msgstr ""
 
-#: editor/src/components/ai/ai-page-generator/index.js:484
+#: editor/src/components/ai/ai-page-generator/index.js:505
 msgid "Determine the website particularities"
 msgstr ""
 
-#: editor/src/components/ai/ai-page-generator/index.js:527
+#: editor/src/components/ai/ai-page-generator/index.js:548
 msgid "Generating page structure"
 msgstr ""
 
-#: editor/src/components/ai/ai-page-generator/index.js:579
+#: editor/src/components/ai/ai-page-generator/index.js:600
 msgid "Blending colors for an exceptional color palette"
 msgstr ""
 
-#: editor/src/components/ai/ai-page-generator/index.js:633
+#: editor/src/components/ai/ai-page-generator/index.js:652
 msgid "Crafting an engaging website header"
 msgstr ""
 
-#: editor/src/components/ai/ai-page-generator/index.js:955
+#: editor/src/components/ai/ai-page-generator/index.js:974
 msgid "KUBIO AI: There was an unknown error. If it persists, please contact support"
 msgstr ""
 
@@ -9662,19 +10106,19 @@ msgstr ""
 msgid "Generating \"%s\" section"
 msgstr ""
 
-#: editor/src/components/ai/ai-page-generator/sections-queue.js:125
+#: editor/src/components/ai/ai-page-generator/sections-queue.js:157
 msgid "Preparing page content"
 msgstr ""
 
-#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/index.js:108
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/index.js:126
 msgid "Step %s of %s"
 msgstr ""
 
-#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/index.js:128
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/index.js:146
 msgid "Finishing Touches"
 msgstr ""
 
-#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/index.js:175
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/index.js:193
 msgid "You can edit the content of the website after you finish the style customization setup."
 msgstr ""
 
@@ -9687,7 +10131,7 @@ msgid "Are you happy with the color scheme selected by Kubio AI?"
 msgstr ""
 
 #: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/color-scheme-step.js:41
-#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/image-step.js:46
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/image-step.js:84
 #: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/typography-step.js:40
 msgid "Below are a few alternatives. You can also change this later."
 msgstr ""
@@ -9701,18 +10145,20 @@ msgstr ""
 msgid "Preset %s"
 msgstr ""
 
-#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/image-step.js:29
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/image-step.js:57
 msgid "Hero Image"
 msgstr ""
 
-#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/image-step.js:31
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/image-step.js:58
+msgid "Hero Slideshow"
+msgstr ""
+
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/image-step.js:62
 msgid "Are you happy with the hero image selected by Kubio AI?"
 msgstr ""
 
-#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/index.js:9
-#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/index.js:13
-#: editor/src/components/ai/wizard/with-step-wrapper.js:194
-msgid "Continue"
+#: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/image-step.js:67
+msgid "Are you happy with the hero slideshow images selected by Kubio AI?"
 msgstr ""
 
 #: editor/src/components/ai/components/editor-ai-post-generate-interface/wizard/steps/typography-step.js:24
@@ -9753,11 +10199,11 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: editor/src/components/ai/filters/empty-page-checker.js:126
+#: editor/src/components/ai/filters/empty-page-checker.js:130
 msgid "Generate page content"
 msgstr ""
 
-#: editor/src/components/ai/filters/empty-page-checker.js:127
+#: editor/src/components/ai/filters/empty-page-checker.js:131
 msgid "Choose a method to generate content for the current page"
 msgstr ""
 
@@ -9906,50 +10352,50 @@ msgstr ""
 msgid "Compact portrait (896x1152)"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:121
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:118
 msgid "Experiment with the latest generative AI and let your imagination define your images."
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:129
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:58
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:126
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:59
 msgid "Image Description"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:134
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:131
 #: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:164
 msgid "Samples"
 msgstr ""
 
 #. translators: %s is replaced with the number of credits
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:144
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:141
 #: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:174
 msgid "More samples will multiply the cost. Estimated cost: %s credits."
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:164
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:162
 #: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:183
 msgid "Image type"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:176
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:195
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:175
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:197
 msgid "Image style"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:190
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:191
 msgid "Generate image"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:191
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:192
 #: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generative-fill/sidebar-generative.js:113
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:94
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:210
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:97
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:214
 msgid "Please wait, this may take a few minutes."
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:195
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generate/sidebar-generate.js:196
 #: editor/src/components/ai/filters/image-controls-ai-options/image-editor/generative-fill/sidebar-generative.js:117
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:214
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:218
 msgid "All generated images will be saved in the Media Library."
 msgstr ""
 
@@ -10001,19 +10447,19 @@ msgstr ""
 msgid "Get more images"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:47
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:48
 msgid "Easily search for free images from Pexels. Just type an image description and Kubio AI will extract search terms to find relevant images."
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:63
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:64
 msgid "Image Orientation"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:73
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:75
 msgid "Saved image size"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:93
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/image-search/sidebar-search.js:96
 msgid "Search image"
 msgstr ""
 
@@ -10025,14 +10471,7 @@ msgstr ""
 msgid "Saved"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/ui/ui-top-menu.js:37
-#: editor/src/components/ai/filters/section-ai-options/generate-section-modal.js:180
-#: editor/src/components/ai/wizard/index.js:170
-#: editor/src/components/ai/wizard/with-step-wrapper.js:104
-msgid "Generate"
-msgstr ""
-
-#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:209
+#: editor/src/components/ai/filters/image-controls-ai-options/image-editor/variations/sidebar-variations.js:213
 msgid "Create variations"
 msgstr ""
 
@@ -10051,27 +10490,27 @@ msgstr ""
 #: editor/src/components/ai/filters/image-controls-ai-options/image-toolbar.js:141
 #: editor/src/components/ai/filters/text-ai-toolbar/index.js:140
 #: editor/src/components/ai/filters/text-ai-toolbar/index.js:155
-#: AI/admin-tab/tab.php:20
+#: AI/admin-tab/tab.php:21
 msgid "Kubio AI"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/pro/popup-ai.js:40
+#: editor/src/components/ai/filters/image-controls-ai-options/pro/popup-ai.js:29
 msgid "Generate awesome images with Kubio AI"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/pro/popup-ai.js:50
+#: editor/src/components/ai/filters/image-controls-ai-options/pro/popup-ai.js:39
 msgid "Hello there! 🌈 Did you know you can unlock a whole new world of creativity with Kubio PRO?"
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/pro/popup-ai.js:59
+#: editor/src/components/ai/filters/image-controls-ai-options/pro/popup-ai.js:48
 msgid "Generate new images by just writing a few words."
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/pro/popup-ai.js:67
+#: editor/src/components/ai/filters/image-controls-ai-options/pro/popup-ai.js:56
 msgid "Create different kinds of images like paintings, 3D models, photographic, etc."
 msgstr ""
 
-#: editor/src/components/ai/filters/image-controls-ai-options/pro/popup-ai.js:75
+#: editor/src/components/ai/filters/image-controls-ai-options/pro/popup-ai.js:64
 msgid "Easily adjust images using the generative fill feature."
 msgstr ""
 
@@ -10198,11 +10637,11 @@ msgstr ""
 msgid "In which language would you like to translate this text?"
 msgstr ""
 
-#: editor/src/components/ai/hooks/use-is-ai-setup-complete.js:42
+#: editor/src/components/ai/hooks/use-is-ai-setup-complete.js:41
 msgid "Kubio AI connected successfully!"
 msgstr ""
 
-#: editor/src/components/ai/new-ai-page.js:124
+#: editor/src/components/ai/new-ai-page.js:126
 msgid "Creating new page…"
 msgstr ""
 
@@ -10233,372 +10672,8 @@ msgstr ""
 msgid "Build your page by hand starting from a blank canvas. This option is recommended for advanced users who wish to create their own, custom design."
 msgstr ""
 
-#: editor/src/components/ai/new-page.js:88
-#: editor/src/components/ai/wizard/steps/index.js:49
-msgid "Generate with Kubio AI"
-msgstr ""
-
 #: editor/src/components/ai/new-page.js:89
 msgid "Get a head start by letting Kubio Al generate a first draft of the page for you. Then you can further customize the page to your liking."
-msgstr ""
-
-#: editor/src/components/ai/wizard/index.js:167
-msgid "Let's do magic"
-msgstr ""
-
-#: editor/src/components/ai/wizard/index.js:175
-msgid "Close AI wizard 🧙‍♂️"
-msgstr ""
-
-#: editor/src/components/ai/wizard/index.js:178
-msgid "Skip AI wizard 🧙‍♂️"
-msgstr ""
-
-#: editor/src/components/ai/wizard/index.js:183
-msgid "Configure Kubio AI"
-msgstr ""
-
-#. translators: %s is the type of page e.g. front page, inner page
-#: editor/src/components/ai/wizard/index.js:187
-msgid "Generate %s"
-msgstr ""
-
-#: editor/src/components/ai/wizard/index.js:189
-msgid "front page"
-msgstr ""
-
-#. translators: %s is the type of page e.g. front page, inner page
-#: editor/src/components/ai/wizard/index.js:193
-msgid "Regenerate %s"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:89
-msgid "Whatsapp"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:95
-msgid "Tiktok"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:101
-msgid "Pinterest"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:107
-msgid "Linkedin"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:252
-msgid "Email address"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:273
-msgid "Phone number"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:311
-msgid "Website language"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:321
-msgid "Language style"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:372
-msgid "No file selected"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:430
-msgid "Website logo"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:443
-msgid "Upload an image file with your company's logo"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:454
-msgid "Upload a file"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:510
-msgid "No URL set"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:628
-msgid "Social media"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/contact-info-step.js:656
-msgid "Add social platform"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/final-step.js:17
-msgid "Kubio AI is ready to generate your website."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/final-step.js:19
-msgid "AI features require connecting to a Kubio account"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/final-step.js:24
-msgid "Create a free Kubio account and you will receive 500 free AI credits to generate your homepage."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/final-step.js:37
-msgid "Awesome! Let's hit \"Generate\""
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/final-step.js:40
-msgid "Awesome! Let's hit \"Save changes\""
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/final-step.js:97
-msgid "Successfully connected to Kubio AI!"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:28
-msgid "Multi page"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:32
-msgid "Single page"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:161
-msgid "Website name cannot be empty!"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:170
-msgid "Website type cannot be empty!"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:178
-msgid "Website description cannot be empty!"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:184
-#: editor/src/components/ai/wizard/steps/general-info-step.js:213
-msgid "Website description exceeds 100 words. Please edit & keep it under the limit to proceed."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:238
-msgid "Too short"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:239
-msgid "Almost there"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:240
-msgid "Great description"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:275
-msgid "Website name"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:290
-msgid "Website type"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:317
-msgid "Website structure"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:337
-msgid "Short description of the website"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:385
-msgid "Recommendations"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:393
-msgid "A few important things to mention in your description:"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:399
-msgid "your main activity"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:401
-msgid "main products or services"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/general-info-step.js:407
-msgid "the purpose of the website"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/index.js:10
-msgid "Welcome"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/index.js:11
-#: editor/src/components/ai/wizard/steps/index.js:21
-msgid "Tell us a few things about your new website."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/index.js:20
-msgid "General information"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/index.js:30
-msgid "Identity & contact"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/index.js:31
-msgid "Provide any contact information related to your business."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/index.js:40
-msgid "Page information"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/index.js:41
-msgid "Tell us a few things about the page we're about to generate."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/index.js:51
-msgid "Watch how Kubio AI does all the work for you."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-info-step.js:87
-msgid "Page title cannot be empty!"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-info-step.js:94
-msgid "Page description exceeds 100 words. Please edit & keep it under the limit to proceed."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-info-step.js:101
-msgid "Page description cannot be empty!"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-info-step.js:136
-msgid "Page purpose"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-info-step.js:137
-msgid "Select page purpose"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-info-step.js:148
-msgid "Short description of the page"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-info-step.js:161
-msgid "Max. 100 words"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:9
-msgid "About Us"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:13
-#: AI/utils.php:109
-msgid "Services"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:17
-#: kubio-editor.php:150
-msgid "Features"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:21
-#: kubio-editor.php:174
-msgid "Portfolio"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:25
-#: kubio-editor.php:194
-msgid "Team"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:33
-#: kubio-editor.php:204
-msgid "F.A.Q."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:41
-#: kubio-editor.php:199
-msgid "Contact"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:46
-msgid "It will show the main features of our products, including our plans and user testimonials"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:53
-msgid "This page should offer detailed information about our organization. Describe company's history, values, and mission and give visitors a clear understanding of our identity."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:57
-msgid "This page focus is on showcasing our business's offerings. Present details about the specific products, solutions, or expertise our company provides to attract potential clients."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:61
-msgid "This page should display a showcase of our notable projects and work. Highlight completed assignments, creative ventures, or successful case studies that effectively demonstrate our competence and skills."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:65
-msgid "A page that introduces visitors to our team members. Spotlight their individual roles, skills, and contributions within the organization to provide insight into our workforce."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:69
-msgid "A page that streamlines communication between our business and its audience. Incorporate contact forms, phone numbers, addresses, and social media links to provide visitors with convenient ways to get in touch."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:74
-msgid "This page is dedicated to showcasing the key features and functionalities of our products or services. Highlight the unique aspects that set our offerings apart and provide value to customers."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:78
-msgid "This page should present a visual gallery that displays images, videos, or multimedia content relevant to our business or organization."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:82
-msgid "This page should present comprehensive list of frequently asked questions and their respective answers. Address common queries that visitors might have about our products, services, policies, or any other relevant topics."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/page-types-and-descriptions.js:86
-msgid "This page should present clear and detailed pricing information for our products or services."
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/welcome-step.js:31
-msgid "Let's create your home page in just a few easy steps:"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/welcome-step.js:38
-msgid "Provide a short description of the website"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/welcome-step.js:44
-msgid "Provide contact and social info (optional)"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/welcome-step.js:49
-msgid "Generate your homepage"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/welcome-step.js:51
-msgid "Apply finishing touches"
-msgstr ""
-
-#: editor/src/components/ai/wizard/steps/welcome-step.js:60
-msgid "Let's get started!"
-msgstr ""
-
-#: editor/src/components/ai/wizard/with-step-wrapper.js:101
-#: editor/src/components/navigation-sidebar/navigation-panel/modals/change-entity-modal.js:153
-msgid "Save changes"
-msgstr ""
-
-#: editor/src/components/ai/wizard/with-step-wrapper.js:130
-msgid "Please connect to Kubio AI first."
-msgstr ""
-
-#: editor/src/components/ai/wizard/with-step-wrapper.js:172
-msgid "Looks like the current page already has content. This action will replace the current page content."
 msgstr ""
 
 #. translators: %s is the number of credits
@@ -10866,20 +10941,20 @@ msgstr ""
 msgid "Search Openverse"
 msgstr ""
 
-#: editor/src/components/editor/index.js:67
+#: editor/src/components/editor/index.js:68
 msgid "Block Library"
 msgstr ""
 
-#: editor/src/components/editor/index.js:68
+#: editor/src/components/editor/index.js:69
 msgid "Navigation Sidebar"
 msgstr ""
 
-#: editor/src/components/editor/index.js:242
+#: editor/src/components/editor/index.js:243
 msgid "New empty page detected. Page template was set to \"Full Width\""
 msgstr ""
 
 #. translators: %s: plugin name
-#: editor/src/components/editor/index.js:373
+#: editor/src/components/editor/index.js:377
 msgid "The \"%s\" plugin has encountered an error and cannot be rendered."
 msgstr ""
 
@@ -10967,132 +11042,128 @@ msgstr ""
 msgid "Feature activated"
 msgstr ""
 
-#: editor/src/components/header/index.js:227
-msgid "This page does not support AI generation!"
-msgstr ""
-
-#: editor/src/components/header/index.js:231
+#: editor/src/components/header/index.js:224
 msgid "AI page generation"
 msgstr ""
 
-#: editor/src/components/header/index.js:246
+#: editor/src/components/header/index.js:233
 msgid "Generate page"
 msgstr ""
 
-#: editor/src/components/header/index.js:279
+#: editor/src/components/header/index.js:266
 msgid "Close the site content panel"
 msgstr ""
 
-#: editor/src/components/header/index.js:283
+#: editor/src/components/header/index.js:270
 msgid "Change page"
 msgstr ""
 
 #. translators: Editing current page
-#: editor/src/components/header/index.js:297
+#: editor/src/components/header/index.js:284
 msgid "Editing: %s"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:50
+#: editor/src/components/header/more-menu/index.js:51
 msgid "Convert Colibri Site"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:56
+#: editor/src/components/header/more-menu/index.js:57
 msgid "Convert Colibri template"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:59
+#: editor/src/components/header/more-menu/index.js:60
 msgid "Converting template…"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:114
+#: editor/src/components/header/more-menu/index.js:115
 msgid "Toggle Kubio debug"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:121
+#: editor/src/components/header/more-menu/index.js:122
 msgid "Convert colibri data"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:128
+#: editor/src/components/header/more-menu/index.js:129
 msgid "Save converted content"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:162
+#: editor/src/components/header/more-menu/index.js:163
 msgid "Switch to Kubio Editor layout"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:163
+#: editor/src/components/header/more-menu/index.js:164
 msgid "Switch to WordPress Editor layout"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:167
+#: editor/src/components/header/more-menu/index.js:168
 msgid "Switch to the new Kubio editor layout for a more friendly editing experience"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:171
+#: editor/src/components/header/more-menu/index.js:172
 msgid "Switch to the WordPress editor layout to have the default editing experience"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:177
+#: editor/src/components/header/more-menu/index.js:178
 msgid "Disable Kubio AI capabilities"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:178
+#: editor/src/components/header/more-menu/index.js:179
 msgid "Enable Kubio AI capabilities"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:181
+#: editor/src/components/header/more-menu/index.js:182
 msgid "Hide Kubio AI buttons in editors interface"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:182
+#: editor/src/components/header/more-menu/index.js:183
 msgid "Show Kubio AI buttons in editors interface"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:209
+#: editor/src/components/header/more-menu/index.js:210
 msgid "Connect this site to Kubio Cloud"
 msgstr ""
 
 #. translators: %s is Kubio Cloud the account email
-#: editor/src/components/header/more-menu/index.js:222
-#: editor/src/components/header/more-menu/index.js:260
+#: editor/src/components/header/more-menu/index.js:223
+#: editor/src/components/header/more-menu/index.js:261
 msgid "Currently connected as %s"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:232
+#: editor/src/components/header/more-menu/index.js:233
 msgid "Disconnect from Kubio Cloud"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:285
+#: editor/src/components/header/more-menu/index.js:286
 #: editor/src/components/navigation-sidebar/navigation-panel/content-navigation-item.js:177
 msgid "More tools & options"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:296
+#: editor/src/components/header/more-menu/index.js:297
 msgctxt "noun"
 msgid "View"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:306
+#: editor/src/components/header/more-menu/index.js:307
 msgid "Spotlight mode"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:307
+#: editor/src/components/header/more-menu/index.js:308
 msgid "Focus on one block at a time"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:311
+#: editor/src/components/header/more-menu/index.js:312
 msgid "Spotlight mode activated"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:315
+#: editor/src/components/header/more-menu/index.js:316
 msgid "Spotlight mode deactivated"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:324
+#: editor/src/components/header/more-menu/index.js:325
 msgid "Open theme customizer"
 msgstr ""
 
-#: editor/src/components/header/more-menu/index.js:329
+#: editor/src/components/header/more-menu/index.js:330
 msgid "Plugins"
 msgstr ""
 
@@ -11317,7 +11388,7 @@ msgid "Preview starter site"
 msgstr ""
 
 #: editor/src/components/header/predefined-layouts/pages/page-renderer/use-modal-pages.js:27
-#: admin-pages/kubio-get-started.php:22
+#: admin-pages/kubio-get-started.php:25
 msgid "Starter sites"
 msgstr ""
 
@@ -11343,10 +11414,24 @@ msgid "Find a section…"
 msgstr ""
 
 #: editor/src/components/header/predefined-layouts/utils.js:72
+#: integrations/third-party-themes/templates-importer.php:285
 #: kubio-editor.php:164
-#: src/Core/Activation.php:304
-#: src/Core/Activation.php:475
+#: src/Core/Activation.php:354
+#: src/Core/Activation.php:536
 msgid "Blog"
+msgstr ""
+
+#: editor/src/components/header/preferences-menu-item/index.js:16
+#: editor/src/components/header/preferences-menu-item/index.js:24
+msgid "Preferences"
+msgstr ""
+
+#: editor/src/components/header/preferences-menu-item/sections-tab/index.js:85
+msgid "Visible sections"
+msgstr ""
+
+#: editor/src/components/header/preferences-menu-item/sections-tab/index.js:87
+msgid "Disable section categories that you don't want to appear in the inserter. They can always be toggled back on later."
 msgstr ""
 
 #: editor/src/components/header/preview-options/index.js:20
@@ -12309,32 +12394,32 @@ msgstr ""
 msgid "The supercharged block-based WordPress builder"
 msgstr ""
 
-#: admin-pages/kubio-get-started.php:24
+#: admin-pages/kubio-get-started.php:27
 msgid "Beautiful starter sites with 1-click import"
 msgstr ""
 
-#: admin-pages/kubio-get-started.php:78
+#: admin-pages/kubio-get-started.php:82
 msgid "Unknown tab partial"
 msgstr ""
 
-#: admin-pages/kubio-get-started.php:93
+#: admin-pages/kubio-get-started.php:97
 msgid "Kubio - Get Started"
 msgstr ""
 
-#: admin-pages/kubio-get-started.php:94
+#: admin-pages/kubio-get-started.php:98
 msgid "Get Started"
 msgstr ""
 
-#: admin-pages/kubio-get-started.php:104
+#: admin-pages/kubio-get-started.php:108
 msgid "Kubio - Starter Sites"
 msgstr ""
 
-#: admin-pages/kubio-get-started.php:105
+#: admin-pages/kubio-get-started.php:109
 msgid "Starter Sites"
 msgstr ""
 
 #: admin-pages/main-page/demo-sites.php:13
-#: kubio-editor.php:1161
+#: kubio-editor.php:1165
 msgid "You need a higher level of permission."
 msgstr ""
 
@@ -12437,12 +12522,12 @@ msgstr ""
 msgid "%s Retrieving data..."
 msgstr ""
 
-#: AI/admin-tab/tab.php:22
+#: AI/admin-tab/tab.php:23
 msgid "Build smarter & faster with Kubio AI"
 msgstr ""
 
-#: AI/admin-tab/tab.php:52
 #: AI/admin-tab/tab.php:53
+#: AI/admin-tab/tab.php:54
 msgid "Unauthorized"
 msgstr ""
 
@@ -13145,57 +13230,57 @@ msgstr ""
 msgid "Inner Headers"
 msgstr ""
 
-#: kubio-editor.php:902
 #: kubio-editor.php:906
-#: kubio-editor.php:917
+#: kubio-editor.php:910
+#: kubio-editor.php:921
 msgid "Kubio"
 msgstr ""
 
-#: kubio-editor.php:945
+#: kubio-editor.php:949
 #: src/Core/EditInKubioCustomizerPanel.php:86
 msgid "Open Kubio Editor"
 msgstr ""
 
-#: kubio-editor.php:1021
+#: kubio-editor.php:1025
 msgid "What to show on the front page"
 msgstr ""
 
-#: kubio-editor.php:1033
+#: kubio-editor.php:1037
 msgid "The ID of the page that should be displayed on the front page"
 msgstr ""
 
-#: kubio-editor.php:1047
+#: kubio-editor.php:1051
 msgid "The ID of the page that displays the posts"
 msgstr ""
 
-#: kubio-editor.php:1064
+#: kubio-editor.php:1068
 msgid "Site icon."
 msgstr ""
 
-#: kubio-editor.php:1081
+#: kubio-editor.php:1085
 msgctxt "Template name"
 msgid "Full Width"
 msgstr ""
 
-#: kubio-editor.php:1082
-#: kubio-editor.php:1089
+#: kubio-editor.php:1086
+#: kubio-editor.php:1093
 msgid "Recommended Kubio template to display individual pages. This template works best with the Kubio provided blocks and predesigned sections."
 msgstr ""
 
-#: kubio-editor.php:1088
+#: kubio-editor.php:1092
 msgctxt "Template name"
 msgid "Kubio Full Width"
 msgstr ""
 
-#: kubio-editor.php:1162
+#: kubio-editor.php:1166
 msgid "Sorry, you are not allowed to customize this site."
 msgstr ""
 
-#: kubio-editor.php:1180
+#: kubio-editor.php:1184
 msgid "Kubio Section"
 msgstr ""
 
-#: kubio-editor.php:1222
+#: kubio-editor.php:1226
 msgid "Kubio Favorites"
 msgstr ""
 
@@ -13325,7 +13410,7 @@ msgstr ""
 msgid "Current preview state is unavailable"
 msgstr ""
 
-#: src/Core/Activation.php:411
+#: src/Core/Activation.php:472
 msgid "Primary menu"
 msgstr ""
 
@@ -13345,29 +13430,57 @@ msgstr ""
 msgid " Please use the button below to open the Kubio editor."
 msgstr ""
 
-#: src/Core/License/ActivationForm.php:29
+#: src/Core/License/ActivationForm.php:32
 msgid "Enter a valid Kubio PRO license key to unlock all the PRO features"
 msgstr ""
 
-#: src/Core/License/ActivationForm.php:52
+#: src/Core/License/ActivationForm.php:67
 msgid "Activate Kubio PRO License"
 msgstr ""
 
-#: src/Core/License/ActivationForm.php:53
+#: src/Core/License/ActivationForm.php:68
 msgid "If this is a testing site you can ignore this message. If this is your live site then please insert the license key below."
 msgstr ""
 
-#: src/Core/License/ActivationForm.php:66
+#: src/Core/License/ActivationForm.php:81
 msgid "Activate License"
 msgstr ""
 
 #. translators: placeholders are some urls like <a href="#">My Account</a>
-#: src/Core/License/ActivationForm.php:84
+#: src/Core/License/ActivationForm.php:99
 msgid "Your key was sent via email when the purchase was completed. Also you can find the key in the %1$s of your %2$s account"
 msgstr ""
 
-#: src/Core/License/ActivationForm.php:172
+#: src/Core/License/ActivationForm.php:187
 msgid "No error"
+msgstr ""
+
+#: src/Core/License/ActivationForm.php:195
+msgid "AI Features"
+msgstr ""
+
+#: src/Core/License/ActivationForm.php:196
+msgid "More sections and blocks"
+msgstr ""
+
+#: src/Core/License/ActivationForm.php:197
+msgid "Footer editing"
+msgstr ""
+
+#: src/Core/License/ActivationForm.php:198
+msgid "Multiple page headers"
+msgstr ""
+
+#: src/Core/License/ActivationForm.php:199
+msgid "Other"
+msgstr ""
+
+#: src/Core/License/ActivationForm.php:216
+msgid "Thank you for choosing Kubio PRO!"
+msgstr ""
+
+#: src/Core/License/ActivationForm.php:219
+msgid "Could you tell us what inspired your decision to upgrade?"
 msgstr ""
 
 #. translators: %1$s - string with server error response

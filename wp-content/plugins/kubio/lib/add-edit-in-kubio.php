@@ -170,40 +170,68 @@ function kubio_post_edit_add_button() {
 
 	<script>
 		(function (data) {
+			const url = data.url;
+			const label = data.label;
+			let unsubscribe = null;
+			
+			const createButton = () => {
+				setTimeout(() => {
 
-			var url = data.url
-			var label =data.label
-
-			var createButton = _.throttle(() => {
-				var toolbar = document.querySelector('.edit-post-header-toolbar');
-				if (toolbar instanceof HTMLElement) {
-					if (!toolbar.querySelector('.components-button.edit-in-kubio')) {
-						var link = document.createElement('a');
-						link.href = url;
-						link.innerHTML = atob(label);
-						link.setAttribute('class', 'components-button edit-in-kubio is-primary');
-						toolbar.appendChild(link);
-						link.addEventListener('click',function(event){
-							var editorSelect = wp.data.select('core/editor');
-							if(editorSelect){
-								if(
-								   'draft' === editorSelect.getEditedPostAttribute('status') ||
-								   'auto-draft' === editorSelect.getEditedPostAttribute('status')
-								){
-									event.preventDefault();
-									event.stopPropagation();
-									wp.hooks.doAction('kubio.post-edit.open-draft-page',{target:event.currentTarget,url});
-								}
-							}
-						});
-						wp.hooks.doAction('kubio.post-edit.button-created',{target:link,url});
+					if (unsubscribe) {
+						unsubscribe();
+						unsubscribe = null;
 					}
-				} else {
-					createButton();
-				}
-			}, 100);
 
-			wp.data.subscribe(() => createButton());
+
+					const toolbar = document.querySelector('.edit-post-header-toolbar');
+					if (toolbar instanceof HTMLElement) {
+						if (
+							!toolbar.querySelector('.components-button.edit-in-kubio')
+						) {
+							const link = document.createElement('a');
+							link.href = url;
+							link.innerHTML = atob(label);
+							link.setAttribute(
+								'class',
+								'components-button edit-in-kubio is-primary'
+							);
+							toolbar.appendChild(link);
+							link.addEventListener('click', function (event) {
+								const editorSelect = wp.data.select('core/editor');
+								if (editorSelect) {
+									if (
+										'draft' ===
+											editorSelect.getEditedPostAttribute(
+												'status'
+											) ||
+										'auto-draft' ===
+											editorSelect.getEditedPostAttribute(
+												'status'
+											)
+									) {
+										event.preventDefault();
+										event.stopPropagation();
+										wp.hooks.doAction(
+											'kubio.post-edit.open-draft-page',
+											{ target: event.currentTarget, url }
+										);
+									}
+								}
+							});
+							wp.hooks.doAction('kubio.post-edit.button-created', {
+								target: link,
+								url,
+							});
+						}
+
+						
+					} else {
+						createButton();
+					}
+				}, 500);
+			};
+
+			unsubscribe = wp.data.subscribe(createButton);
 		})(
 		<?php
 			echo wp_json_encode(

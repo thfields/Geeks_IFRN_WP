@@ -90,7 +90,7 @@ function kubio_handle_autosaved_posts_and_templates() {
 									$more = 1;
 
 									if ( Utils::wpVersionCompare( '6.4', '>=' ) ) {
-										setup_postdata($new_post);
+										setup_postdata( $new_post );
 									}
 								}
 							}
@@ -112,10 +112,15 @@ function kubio_handle_autosaved_posts_and_templates() {
 			return function ( $template, $type, $templates ) use ( $autosaved_posts, $callback, $page_templates_remap ) {
 
 				if ( is_page() || is_single() ) {
-					$remapped_template = Arr::get( $page_templates_remap, get_the_ID(), null );
 
-					if ( $remapped_template ) {
-						$templates = array( $remapped_template );
+					if ( $type === 'frontpage' ) {
+						$templates = array( 'front-page.php' );
+					} else {
+						$remapped_template = Arr::get( $page_templates_remap, get_the_ID(), null );
+
+						if ( $remapped_template ) {
+							$templates = array( $remapped_template );
+						}
 					}
 				}
 
